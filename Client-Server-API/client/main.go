@@ -42,6 +42,10 @@ func main() {
 		log.Fatal(err)
 	}
 
+	if exchange.Error != "" {
+		log.Fatalln(exchange.Error)
+	}
+
 	if _, err := f.Write([]byte(fmt.Sprintf("Dólar: R$ %.2f\n", exchange.Bid))); err != nil {
 		log.Fatalln(err)
 	}
